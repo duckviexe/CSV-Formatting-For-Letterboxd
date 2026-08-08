@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Archivo Black", "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --color-ink: #0c0c0c;
+  --color-cy: #33c26e;
+  --color-cydark: #0c6e41;
+  --color-cysoft: #dbf6e7;
+  --color-yolk: #ffdf3f;
+  --color-lb: #ff8000;
+  --color-mint: #00e054;
+  --color-danger: #ff3d2e;
+}
+
+html {
+  scrollbar-color: #0c0c0c #33c26e;
+}
+
+body {
+  background-color: var(--color-cy);
+  color: var(--color-ink);
+}
+
+/* blueprint grid over the cyan field */
+.bg-blueprint {
+  background-image: linear-gradient(rgba(12, 12, 12, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(12, 12, 12, 0.055) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+/* film-strip sprocket holes drifting */
+.film-holes {
+  background-image: radial-gradient(
+    circle at center,
+    rgba(12, 74, 43, 0.4) 0 3px,
+    transparent 4px
+  );
+  background-size: 100% 26px;
+  background-repeat: repeat;
+}
+@keyframes strip-scroll {
+  to {
+    background-position: 0 260px;
+  }
+}
+.animate-strip {
+  animation: strip-scroll 26s linear infinite;
+}
+
+/* marquee */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* terminal cursor blink */
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+.animate-blink {
+  animation: blink 1.1s steps(1) infinite;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.75);
+  }
+}
+.animate-pulse-dot {
+  animation: pulse-dot 1.6s ease-in-out infinite;
+}
+
+/* giant outlined poster text */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(12, 12, 12, 0.16);
+}
